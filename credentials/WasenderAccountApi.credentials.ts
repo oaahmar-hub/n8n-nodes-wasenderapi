@@ -41,7 +41,7 @@ export class WasenderAccountApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				Authorization: '=Bearer {{$credentials.personalAccessToken}}',
+				Authorization: '=Bearer {{$credentials.personalAccessToken.trim()}}',
 			},
 		},
 	};
