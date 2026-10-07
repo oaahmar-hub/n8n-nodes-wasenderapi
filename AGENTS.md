@@ -4,7 +4,7 @@ This file gives coding agents enough context to work safely in this repository w
 
 ## Repo Overview
 
-- Package: `n8n-nodes-wasenderapi-official`
+- Package: `n8n-nodes-wasenderapi`
 - Type: n8n community node package
 - Purpose: integrate WasenderAPI into n8n
 
