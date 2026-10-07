@@ -33,7 +33,8 @@ export class WasenderAccountApi implements ICredentialType {
 			type: 'string',
 			default: 'https://www.wasenderapi.com/api',
 			placeholder: 'https://www.wasenderapi.com/api',
-			description: 'Override only for self-hosted or proxy deployments',
+			description:
+				'Override only for self-hosted or proxy deployments. Trailing slashes are removed and /api is appended if missing.',
 		},
 	];
 
@@ -48,7 +49,8 @@ export class WasenderAccountApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: '={{$credentials.baseUrl}}',
+			baseURL:
+				"={{ String($credentials.baseUrl || 'https://www.wasenderapi.com/api').trim().replace(/\\/+$/, '').replace(/(\\/api)?$/, '/api') }}",
 			url: '/auth-check',
 			method: 'GET',
 		},
